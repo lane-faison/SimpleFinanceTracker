@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F64816FC1F23B25A0068DE32 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64816FB1F23B25A0068DE32 /* AddVC.swift */; };
+		F64816FE1F23D2BB0068DE32 /* RoundedOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64816FD1F23D2BB0068DE32 /* RoundedOutlineButton.swift */; };
 		F6BEA4EF1F231E22007E943A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BEA4EE1F231E22007E943A /* AppDelegate.swift */; };
 		F6BEA4F11F231E22007E943A /* MainTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BEA4F01F231E22007E943A /* MainTableVC.swift */; };
 		F6BEA4F41F231E22007E943A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BEA4F21F231E22007E943A /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		F64816FB1F23B25A0068DE32 /* AddVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
+		F64816FD1F23D2BB0068DE32 /* RoundedOutlineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedOutlineButton.swift; sourceTree = "<group>"; };
 		F6BEA4EB1F231E22007E943A /* SimpleFinanceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleFinanceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BEA4EE1F231E22007E943A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6BEA4F01F231E22007E943A /* MainTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableVC.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				F6BEA4FD1F231E22007E943A /* Info.plist */,
 				F6BEA4F51F231E22007E943A /* SimpleFinanceTracker.xcdatamodeld */,
 				F6C526A81F232C93002270D4 /* ColorScheme.swift */,
+				F64816FD1F23D2BB0068DE32 /* RoundedOutlineButton.swift */,
 			);
 			path = SimpleFinanceTracker;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			files = (
 				F6C526A91F232C93002270D4 /* ColorScheme.swift in Sources */,
 				F6BEA4F11F231E22007E943A /* MainTableVC.swift in Sources */,
+				F64816FE1F23D2BB0068DE32 /* RoundedOutlineButton.swift in Sources */,
 				F6BEA4EF1F231E22007E943A /* AppDelegate.swift in Sources */,
 				F6BEA4F71F231E22007E943A /* SimpleFinanceTracker.xcdatamodeld in Sources */,
 				F64816FC1F23B25A0068DE32 /* AddVC.swift in Sources */,
