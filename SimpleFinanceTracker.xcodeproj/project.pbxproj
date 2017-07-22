@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F6BEA4EF1F231E22007E943A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BEA4EE1F231E22007E943A /* AppDelegate.swift */; };
-		F6BEA4F11F231E22007E943A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BEA4F01F231E22007E943A /* ViewController.swift */; };
+		F6BEA4F11F231E22007E943A /* MainTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BEA4F01F231E22007E943A /* MainTableVC.swift */; };
 		F6BEA4F41F231E22007E943A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BEA4F21F231E22007E943A /* Main.storyboard */; };
 		F6BEA4F71F231E22007E943A /* SimpleFinanceTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6BEA4F51F231E22007E943A /* SimpleFinanceTracker.xcdatamodeld */; };
 		F6BEA4F91F231E22007E943A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6BEA4F81F231E22007E943A /* Assets.xcassets */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		F6BEA4EB1F231E22007E943A /* SimpleFinanceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleFinanceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BEA4EE1F231E22007E943A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F6BEA4F01F231E22007E943A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F6BEA4F01F231E22007E943A /* MainTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableVC.swift; sourceTree = "<group>"; };
 		F6BEA4F31F231E22007E943A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6BEA4F61F231E22007E943A /* SimpleFinanceTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleFinanceTracker.xcdatamodel; sourceTree = "<group>"; };
 		F6BEA4F81F231E22007E943A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				F6BEA4EE1F231E22007E943A /* AppDelegate.swift */,
-				F6BEA4F01F231E22007E943A /* ViewController.swift */,
+				F6BEA4F01F231E22007E943A /* MainTableVC.swift */,
 				F6BEA4F21F231E22007E943A /* Main.storyboard */,
 				F6BEA4F81F231E22007E943A /* Assets.xcassets */,
 				F6BEA4FA1F231E22007E943A /* LaunchScreen.storyboard */,
@@ -140,7 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6BEA4F11F231E22007E943A /* ViewController.swift in Sources */,
+				F6BEA4F11F231E22007E943A /* MainTableVC.swift in Sources */,
 				F6BEA4EF1F231E22007E943A /* AppDelegate.swift in Sources */,
 				F6BEA4F71F231E22007E943A /* SimpleFinanceTracker.xcdatamodeld in Sources */,
 			);
