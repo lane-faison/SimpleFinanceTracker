@@ -90,6 +90,10 @@ class MainTableVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = "My Money"
+        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(addExpenseSegue))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "money"), style: .plain, target: self, action: #selector(addExpenseSegue))
     
         view.addSubview(expenseTableView)
         view.addSubview(balanceView)
@@ -143,7 +147,9 @@ class MainTableVC: UIViewController {
         balanceAmountLabel.rightAnchor.constraint(equalTo: balanceView.rightAnchor, constant: -20).isActive = true
     }
 
-
+    func addExpenseSegue() {
+        performSegue(withIdentifier: "toAddVC", sender: nil)
+    }
 
 }
 

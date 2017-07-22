@@ -23,10 +23,31 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="R7O-nh-JSU"/>
+                    <connections>
+                        <segue destination="EH7-Hi-CVX" kind="show" identifier="toAddVC" id="3Ss-wV-F4U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="685.60000000000002" y="237.93103448275863"/>
+        </scene>
+        <!--AddVC-->
+        <scene sceneID="coG-ta-YVK">
+            <objects>
+                <viewController id="EH7-Hi-CVX" customClass="AddVC" customModule="SimpleFinanceTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AT6-pu-dfe"/>
+                        <viewControllerLayoutGuide type="bottom" id="JHe-pZ-yqi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sYN-tH-Xfc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8k0-SR-NEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1599" y="238"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oRl-rZ-6sN">
