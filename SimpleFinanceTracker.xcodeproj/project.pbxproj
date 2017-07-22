@@ -13,6 +13,7 @@
 		F6BEA4F71F231E22007E943A /* SimpleFinanceTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6BEA4F51F231E22007E943A /* SimpleFinanceTracker.xcdatamodeld */; };
 		F6BEA4F91F231E22007E943A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6BEA4F81F231E22007E943A /* Assets.xcassets */; };
 		F6BEA4FC1F231E22007E943A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BEA4FA1F231E22007E943A /* LaunchScreen.storyboard */; };
+		F6C526A91F232C93002270D4 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C526A81F232C93002270D4 /* ColorScheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F6BEA4F81F231E22007E943A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6BEA4FB1F231E22007E943A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6BEA4FD1F231E22007E943A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6C526A81F232C93002270D4 /* ColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				F6BEA4FA1F231E22007E943A /* LaunchScreen.storyboard */,
 				F6BEA4FD1F231E22007E943A /* Info.plist */,
 				F6BEA4F51F231E22007E943A /* SimpleFinanceTracker.xcdatamodeld */,
+				F6C526A81F232C93002270D4 /* ColorScheme.swift */,
 			);
 			path = SimpleFinanceTracker;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C526A91F232C93002270D4 /* ColorScheme.swift in Sources */,
 				F6BEA4F11F231E22007E943A /* MainTableVC.swift in Sources */,
 				F6BEA4EF1F231E22007E943A /* AppDelegate.swift in Sources */,
 				F6BEA4F71F231E22007E943A /* SimpleFinanceTracker.xcdatamodeld in Sources */,
@@ -306,6 +310,7 @@
 				F6BEA5021F231E22007E943A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
