@@ -39,7 +39,10 @@ class AddVC: UIViewController {
         button.borderColor = ColorScheme.darkPrimaryColor
         button.borderWidth = 3
         button.cornerRadius = 45
+        button.titleLabel?.font = UIFont(name: "Avenir next", size: 16)
+        button.addTarget(self, action: #selector(revenueButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
         return button
     }()
     
@@ -49,6 +52,8 @@ class AddVC: UIViewController {
         button.borderColor = .red
         button.borderWidth = 3
         button.cornerRadius = 45
+        button.titleLabel?.font = UIFont(name: "Avenir next", size: 16)
+        button.addTarget(self, action: #selector(expenseButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -57,6 +62,9 @@ class AddVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var isRevenueButtonTapped = false
+        var isExpenseButtonTapped = false
 
         view.addSubview(addView)
         
@@ -86,13 +94,25 @@ class AddVC: UIViewController {
         revenueButton.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 20).isActive = true
         revenueButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
         revenueButton.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        revenueButton.setTitle("Revenue", for: .normal)
         
         addView.addSubview(expenseButton)
         expenseButton.centerXAnchor.constraint(equalTo: addView.centerXAnchor, constant: 60).isActive = true
         expenseButton.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 20).isActive = true
         expenseButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
         expenseButton.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        expenseButton.setTitle("Expense", for: .normal)
         
+        
+    }
+    
+    func revenueButtonTapped() {
+        print(123)
+        
+    }
+    
+    func expenseButtonTapped() {
+        print(456)
     }
     
 
