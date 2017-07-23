@@ -15,7 +15,7 @@ class AddVC: UIViewController, UITextFieldDelegate {
 
     let addView: UIView = {
         let view = UIView()
-        view.backgroundColor = ColorScheme.lightPrimaryColor
+        view.backgroundColor = ColorScheme.textOrIcons
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -53,7 +53,7 @@ class AddVC: UIViewController, UITextFieldDelegate {
     let expenseButton: RoundedOutlineButton = {
         let button = RoundedOutlineButton(type: .system)
         button.backgroundColor = ColorScheme.textOrIcons
-        button.borderColor = .red
+        button.borderColor = ColorScheme.darkPrimaryColor
         button.borderWidth = 3
         button.cornerRadius = 45
         button.titleLabel?.font = UIFont(name: "Avenir next", size: 16)
@@ -79,7 +79,7 @@ class AddVC: UIViewController, UITextFieldDelegate {
         return view
     }()
     
-    let costTextField: UITextField = {
+    let descriptionTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "ex. Apartment Rent"
         textField.textAlignment = .center
@@ -90,6 +90,49 @@ class AddVC: UIViewController, UITextFieldDelegate {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
+    
+    let amountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Amount"
+        label.textColor = ColorScheme.primaryText
+        label.font = UIFont(name: "Avenir next", size: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let dividerView3: UIView = {
+        let view = UIView()
+        view.backgroundColor = ColorScheme.dividerColor
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let amountTextField: UITextField = {
+        let textField = UITextField()
+        textField.keyboardType = .decimalPad
+        textField.placeholder = "$0.00"
+        textField.textAlignment = .center
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 5
+        textField.layer.borderColor = ColorScheme.primaryText.cgColor
+        textField.layer.borderWidth = 2
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    let addButton: RoundedOutlineButton = {
+        let button = RoundedOutlineButton()
+        button.backgroundColor = ColorScheme.primaryColor
+        button.borderColor = ColorScheme.darkPrimaryColor
+        button.borderWidth = 3
+        button.cornerRadius = 25
+        button.titleLabel?.font = UIFont(name: "Avenir next", size: 16)
+        button.tintColor = ColorScheme.textOrIcons
+        button.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,11 +190,34 @@ class AddVC: UIViewController, UITextFieldDelegate {
         dividerView2.widthAnchor.constraint(equalTo: addView.widthAnchor, constant: 0).isActive = true
         dividerView2.heightAnchor.constraint(equalToConstant: 2).isActive = true
         
-        addView.addSubview(costTextField)
-        costTextField.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
-        costTextField.topAnchor.constraint(equalTo: dividerView2.bottomAnchor, constant: 20).isActive = true
-        costTextField.widthAnchor.constraint(equalTo: addView.widthAnchor, constant: -100).isActive = true
-        costTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        addView.addSubview(descriptionTextField)
+        descriptionTextField.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
+        descriptionTextField.topAnchor.constraint(equalTo: dividerView2.bottomAnchor, constant: 20).isActive = true
+        descriptionTextField.widthAnchor.constraint(equalTo: addView.widthAnchor, constant: -100).isActive = true
+        descriptionTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        addView.addSubview(amountLabel)
+        amountLabel.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 30).isActive = true
+        amountLabel.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
+        
+        addView.addSubview(dividerView3)
+        dividerView3.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
+        dividerView3.topAnchor.constraint(equalTo: amountLabel.bottomAnchor, constant: 5).isActive = true
+        dividerView3.widthAnchor.constraint(equalTo: addView.widthAnchor, constant: 0).isActive = true
+        dividerView3.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        
+        addView.addSubview(amountTextField)
+        amountTextField.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
+        amountTextField.topAnchor.constraint(equalTo: dividerView3.bottomAnchor, constant: 20).isActive = true
+        amountTextField.widthAnchor.constraint(equalTo: addView.widthAnchor, constant: -100).isActive = true
+        amountTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        addView.addSubview(addButton)
+        addButton.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
+        addButton.topAnchor.constraint(equalTo: amountTextField.bottomAnchor, constant: 20).isActive = true
+        addButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        addButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        addButton.setTitle("Add", for: .normal)
     }
     
     func revenueButtonTapped() {
@@ -207,6 +273,10 @@ class AddVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func addButtonTapped() {
+        print("$\(amountTextField.text)")
+    }
+    
     // Hide keyboard when user touches outside keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -221,14 +291,14 @@ class AddVC: UIViewController, UITextFieldDelegate {
     // Scrolls view up when keyboard shows
     func keyboardWillShow(notification: NSNotification) {
         if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= 100
+            self.view.frame.origin.y -= 150
         }
     }
     
     // Scrolls view down when keyboard hides
     func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y += 100
+            self.view.frame.origin.y += 150
         }
     }
 }
