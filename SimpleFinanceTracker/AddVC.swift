@@ -9,6 +9,9 @@
 import UIKit
 
 class AddVC: UIViewController {
+    
+    var isRevenueButtonTapped = false
+    var isExpenseButtonTapped = false
 
     let addView: UIView = {
         let view = UIView()
@@ -40,6 +43,7 @@ class AddVC: UIViewController {
         button.borderWidth = 3
         button.cornerRadius = 45
         button.titleLabel?.font = UIFont(name: "Avenir next", size: 16)
+        button.tintColor = ColorScheme.primaryText
         button.addTarget(self, action: #selector(revenueButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -53,6 +57,7 @@ class AddVC: UIViewController {
         button.borderWidth = 3
         button.cornerRadius = 45
         button.titleLabel?.font = UIFont(name: "Avenir next", size: 16)
+        button.tintColor = ColorScheme.primaryText
         button.addTarget(self, action: #selector(expenseButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -63,8 +68,8 @@ class AddVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var isRevenueButtonTapped = false
-        var isExpenseButtonTapped = false
+        isRevenueButtonTapped = false
+        isExpenseButtonTapped = false
 
         view.addSubview(addView)
         
@@ -108,11 +113,55 @@ class AddVC: UIViewController {
     
     func revenueButtonTapped() {
         print(123)
-        
+        if isRevenueButtonTapped == false {
+            isRevenueButtonTapped = true
+            isExpenseButtonTapped = false
+            checkButtons()
+        } else {
+            isRevenueButtonTapped = false
+            isExpenseButtonTapped = true
+            checkButtons()
+        }
     }
     
     func expenseButtonTapped() {
         print(456)
+        if isExpenseButtonTapped == false {
+            isExpenseButtonTapped = true
+            isRevenueButtonTapped = false
+            checkButtons()
+        } else {
+            isExpenseButtonTapped = false
+            isRevenueButtonTapped = true
+            checkButtons()
+        }
+    }
+    
+    func checkButtons() {
+        if isRevenueButtonTapped == true {
+            revenueButton.tintColor = ColorScheme.textOrIcons
+            revenueButton.backgroundColor = ColorScheme.primaryColor
+            expenseButton.tintColor = ColorScheme.primaryText
+            expenseButton.backgroundColor = ColorScheme.textOrIcons
+        }
+        if isRevenueButtonTapped == false {
+            revenueButton.tintColor = ColorScheme.primaryText
+            revenueButton.backgroundColor = ColorScheme.textOrIcons
+            expenseButton.tintColor = ColorScheme.textOrIcons
+            expenseButton.backgroundColor = ColorScheme.primaryColor
+        }
+        if isExpenseButtonTapped == true {
+            expenseButton.tintColor = ColorScheme.textOrIcons
+            expenseButton.backgroundColor = ColorScheme.primaryColor
+            revenueButton.tintColor = ColorScheme.primaryText
+            revenueButton.backgroundColor = ColorScheme.textOrIcons
+        }
+        if isExpenseButtonTapped == false {
+            expenseButton.tintColor = ColorScheme.primaryText
+            expenseButton.backgroundColor = ColorScheme.textOrIcons
+            revenueButton.tintColor = ColorScheme.textOrIcons
+            revenueButton.backgroundColor = ColorScheme.primaryColor
+        }
     }
     
 
