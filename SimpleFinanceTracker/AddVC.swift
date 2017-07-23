@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddVC: UIViewController {
+class AddVC: UIViewController, UITextFieldDelegate {
     
     var isRevenueButtonTapped = false
     var isExpenseButtonTapped = false
@@ -22,14 +22,14 @@ class AddVC: UIViewController {
     
     let typeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Type:"
+        label.text = "Type"
         label.textColor = ColorScheme.primaryText
         label.font = UIFont(name: "Avenir next", size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let dividerView: UIView = {
+    let dividerView1: UIView = {
         let view = UIView()
         view.backgroundColor = ColorScheme.dividerColor
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +63,33 @@ class AddVC: UIViewController {
         return button
     }()
     
-
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Description"
+        label.textColor = ColorScheme.primaryText
+        label.font = UIFont(name: "Avenir next", size: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let dividerView2: UIView = {
+        let view = UIView()
+        view.backgroundColor = ColorScheme.dividerColor
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let costTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "ex. Apartment Rent"
+        textField.textAlignment = .center
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 5
+        textField.layer.borderColor = ColorScheme.primaryText.cgColor
+        textField.layer.borderWidth = 2
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +100,9 @@ class AddVC: UIViewController {
         view.addSubview(addView)
         
         setupAddView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AddVC.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     
     }
 
@@ -86,29 +115,43 @@ class AddVC: UIViewController {
         
         addView.addSubview(typeLabel)
         typeLabel.topAnchor.constraint(equalTo: addView.topAnchor, constant: 0).isActive = true
-        typeLabel.leftAnchor.constraint(equalTo: addView.leftAnchor, constant: 0).isActive = true
+        typeLabel.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
         
-        addView.addSubview(dividerView)
-        dividerView.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
-        dividerView.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 5).isActive = true
-        dividerView.widthAnchor.constraint(equalTo: addView.widthAnchor, constant: 0).isActive = true
-        dividerView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        addView.addSubview(dividerView1)
+        dividerView1.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
+        dividerView1.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: 5).isActive = true
+        dividerView1.widthAnchor.constraint(equalTo: addView.widthAnchor, constant: 0).isActive = true
+        dividerView1.heightAnchor.constraint(equalToConstant: 2).isActive = true
 
         addView.addSubview(revenueButton)
         revenueButton.centerXAnchor.constraint(equalTo: addView.centerXAnchor, constant: -60).isActive = true
-        revenueButton.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 20).isActive = true
+        revenueButton.topAnchor.constraint(equalTo: dividerView1.bottomAnchor, constant: 20).isActive = true
         revenueButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
         revenueButton.heightAnchor.constraint(equalToConstant: 90).isActive = true
         revenueButton.setTitle("Revenue", for: .normal)
         
         addView.addSubview(expenseButton)
         expenseButton.centerXAnchor.constraint(equalTo: addView.centerXAnchor, constant: 60).isActive = true
-        expenseButton.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 20).isActive = true
+        expenseButton.topAnchor.constraint(equalTo: dividerView1.bottomAnchor, constant: 20).isActive = true
         expenseButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
         expenseButton.heightAnchor.constraint(equalToConstant: 90).isActive = true
         expenseButton.setTitle("Expense", for: .normal)
         
+        addView.addSubview(descriptionLabel)
+        descriptionLabel.topAnchor.constraint(equalTo: revenueButton.bottomAnchor, constant: 30).isActive = true
+        descriptionLabel.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
         
+        addView.addSubview(dividerView2)
+        dividerView2.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
+        dividerView2.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5).isActive = true
+        dividerView2.widthAnchor.constraint(equalTo: addView.widthAnchor, constant: 0).isActive = true
+        dividerView2.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        
+        addView.addSubview(costTextField)
+        costTextField.centerXAnchor.constraint(equalTo: addView.centerXAnchor).isActive = true
+        costTextField.topAnchor.constraint(equalTo: dividerView2.bottomAnchor, constant: 20).isActive = true
+        costTextField.widthAnchor.constraint(equalTo: addView.widthAnchor, constant: -100).isActive = true
+        costTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     func revenueButtonTapped() {
@@ -164,6 +207,28 @@ class AddVC: UIViewController {
         }
     }
     
-
-
+    // Hide keyboard when user touches outside keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // Hide keyboard when user presses Return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Scrolls view up when keyboard shows
+    func keyboardWillShow(notification: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 100
+        }
+    }
+    
+    // Scrolls view down when keyboard hides
+    func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += 100
+        }
+    }
 }
